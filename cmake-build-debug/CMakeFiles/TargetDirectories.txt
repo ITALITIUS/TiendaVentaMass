@@ -1,0 +1,3 @@
+C:/Users/51922/Documents/GitHub/TiendaVentaMass/cmake-build-debug/CMakeFiles/TiendaVentaMass.dir
+C:/Users/51922/Documents/GitHub/TiendaVentaMass/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/51922/Documents/GitHub/TiendaVentaMass/cmake-build-debug/CMakeFiles/rebuild_cache.dir
