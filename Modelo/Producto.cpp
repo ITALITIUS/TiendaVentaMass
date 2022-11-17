@@ -2,9 +2,9 @@ using namespace std;
 #include <iostream>
 
 class Producto{
-    string nombre="manzana";
+    string nombreProducto="manzana";
 public:
     void Vernombre(){
-        cout <<"nombre" << nombre<<endl;
+        cout <<"nombre" << nombreProducto<<endl;
     }
 };
