@@ -1,7 +1,10 @@
 # ninja log v5
-8	746	6902765950651398	CMakeFiles/TiendaVentaMass.dir/main.cpp.obj	17a267ff3820d6d1
-747	940	6902765952561532	TiendaVentaMass.exe	a9f798f704d3c2f1
-2	619	6902808518425504	build.ninja	21e52a315bc7b25a
+12	682	6903267284480535	CMakeFiles/TiendaVentaMass.dir/main.cpp.obj	17a267ff3820d6d1
+2	619	6903609433014068	build.ninja	21e52a315bc7b25a
+683	1001	6903267287630774	TiendaVentaMass.exe	8dd7ab9c532f35e5
 10	625	6902808526706103	CMakeFiles/TiendaVentaMass.dir/Controlador/ProductoControlador.cpp.obj	e44d8d3406cc879e
-6	649	6902808526936177	CMakeFiles/TiendaVentaMass.dir/main.cpp.obj	17a267ff3820d6d1
-649	872	6902808529176306	TiendaVentaMass.exe	8dd7ab9c532f35e5
+2	1058	6903609433014068	build.ninja	21e52a315bc7b25a
+6	1471	6903609454965668	CMakeFiles/TiendaVentaMass.dir/main.cpp.obj	17a267ff3820d6d1
+1472	2051	6903609460616125	TiendaVentaMass.exe	8dd7ab9c532f35e5
+13	2407	6903627416303496	CMakeFiles/TiendaVentaMass.dir/main.cpp.obj	17a267ff3820d6d1
+2408	2988	6903627421983929	TiendaVentaMass.exe	8dd7ab9c532f35e5

@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
-#include <conio.h>
 #include "Modelo/Producto.cpp"
 #include "Controlador/ProductoControlador.cpp"
+#include "Modelo/Cliente.h"
 using namespace std;
 
 int main ()
@@ -12,5 +12,10 @@ int main ()
     producto->Vernombre();
     ProductoControlador* productoControlador = new ProductoControlador;
     productoControlador->Mostrarnombre();
+    Cliente* cliente  = new Cliente;
+    cliente->verCodigoCliente();
 
 }
+
+
+
