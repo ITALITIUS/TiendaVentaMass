@@ -9,7 +9,7 @@ int main ()
 {
     cout << "hola mundo";
     Producto* producto = new Producto;
-    producto->Vernombre();
+    producto->testClaseProducto();
     ProductoControlador* productoControlador = new ProductoControlador;
     productoControlador->Mostrarnombre();
     Cliente* cliente  = new Cliente;
