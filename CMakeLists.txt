@@ -4,4 +4,4 @@ project(TiendaVentaMass)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(TiendaVentaMass
-        main.cpp Controlador/ProductoControlador.cpp Modelo/Cliente.h Modelo/Vendedor.h Modelo/Categoria.h Modelo/DetalledeVenta.h Modelo/Venta.h)
+        main.cpp Controlador/ProductoControlador.h Modelo/Cliente.h Modelo/Vendedor.h Modelo/Categoria.h Modelo/DetalledeVenta.h Modelo/Venta.h)
