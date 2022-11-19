@@ -55,12 +55,6 @@ build CMakeFiles/TiendaVentaMass.dir/main.cpp.obj: CXX_COMPILER__TiendaVentaMass
   OBJECT_DIR = CMakeFiles\TiendaVentaMass.dir
   OBJECT_FILE_DIR = CMakeFiles\TiendaVentaMass.dir
 
-build CMakeFiles/TiendaVentaMass.dir/Controlador/ProductoControlador.cpp.obj: CXX_COMPILER__TiendaVentaMass_Debug C$:/Users/51922/Documents/GitHub/TiendaVentaMass/Controlador/ProductoControlador.cpp || cmake_object_order_depends_target_TiendaVentaMass
-  DEP_FILE = CMakeFiles\TiendaVentaMass.dir\Controlador\ProductoControlador.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles\TiendaVentaMass.dir
-  OBJECT_FILE_DIR = CMakeFiles\TiendaVentaMass.dir\Controlador
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TiendaVentaMass
@@ -69,7 +63,7 @@ build CMakeFiles/TiendaVentaMass.dir/Controlador/ProductoControlador.cpp.obj: CX
 #############################################
 # Link the executable TiendaVentaMass.exe
 
-build TiendaVentaMass.exe: CXX_EXECUTABLE_LINKER__TiendaVentaMass_Debug CMakeFiles/TiendaVentaMass.dir/main.cpp.obj CMakeFiles/TiendaVentaMass.dir/Controlador/ProductoControlador.cpp.obj
+build TiendaVentaMass.exe: CXX_EXECUTABLE_LINKER__TiendaVentaMass_Debug CMakeFiles/TiendaVentaMass.dir/main.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\TiendaVentaMass.dir

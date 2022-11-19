@@ -9,6 +9,7 @@
 #include "Modelo/Venta.h"
 
 
+
 using namespace std;
 
 ProductoControlador* productoControlador= new ProductoControlador();
@@ -31,7 +32,7 @@ int main ()
     cin>>codigodeCategoria;
 
 
-    Producto objetoProducto(codigodeProducto, nombredeProducto, preciodeProducto, stockdeProducto, codigodeProducto);
+    Producto objetoProducto(codigodeProducto, nombredeProducto, preciodeProducto, stockdeProducto, codigodeCategoria);
     productoControlador->registrarProducto(objetoProducto);
     productoControlador->guardarProductoenArchivo(objetoProducto);
 

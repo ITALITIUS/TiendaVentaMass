@@ -11,7 +11,7 @@ private:
     int codigodeCategoria;
 
 public:
-    Producto(){}
+    //Producto(){}
     Producto(int codigodeProducto, string nombredeProducto, string stockdeProducto, float preciodeProducto, int CodigodeCategoria){
         this->codigodeProducto = codigodeProducto;
         this->nombredeProducto = nombredeProducto;

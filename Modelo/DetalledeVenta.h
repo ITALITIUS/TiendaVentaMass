@@ -2,7 +2,7 @@
 #pragma once
 using namespace std;
 
-class detalleDeVentaeVenta {
+class detalleDeVenta {
 private:
     int codigoVenta;
     string codigoProducto;

@@ -1,5 +1,6 @@
 # ninja log v5
 5	989	6904505435043551	CMakeFiles/TiendaVentaMass.dir/main.cpp.obj	17a267ff3820d6d1
+2	665	6905390537921453	build.ninja	21e52a315bc7b25a
 991	1278	6904505437925393	TiendaVentaMass.exe	8dd7ab9c532f35e5
-7	545	6905312927947823	build.ninja	21e52a315bc7b25a
 10	625	6902808526706103	CMakeFiles/TiendaVentaMass.dir/Controlador/ProductoControlador.cpp.obj	e44d8d3406cc879e
+3	811	6905390537921453	build.ninja	21e52a315bc7b25a

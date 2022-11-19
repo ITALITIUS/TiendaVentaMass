@@ -1,7 +1,7 @@
 using namespace std;
 #include <vector>
 #include <iostream>
-#include "Modelo/Producto.h"
+#include "../Modelo/Producto.h"
 #include <fstream>
 
 class ProductoControlador{
