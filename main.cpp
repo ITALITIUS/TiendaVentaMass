@@ -11,30 +11,14 @@
 
 
 using namespace std;
-
+void registrarProducto();
 ProductoControlador* productoControlador= new ProductoControlador();
 
 int main ()
 {
-    cout << "creando Producto";
-    int codigodeProducto;
-    string nombredeProducto;
-    float preciodeProducto;
-    string  stockdeProducto;
-    int codigodeCategoria;
+    cout << "bienvenido a tiendaventamas"<<endl;
 
-
-    codigodeProducto= productoControlador->obtenerCorrelativo();
-    cin.ignore();
-    getline(cin,nombredeProducto);
-    cin>>preciodeProducto;
-    getline(cin,stockdeProducto);
-    cin>>codigodeCategoria;
-
-
-    Producto objetoProducto(codigodeProducto, nombredeProducto, preciodeProducto, stockdeProducto, codigodeCategoria);
-    productoControlador->registrarProducto(objetoProducto);
-    productoControlador->guardarProductoenArchivo(objetoProducto);
+   registrarProducto();
 
 
 
@@ -46,5 +30,39 @@ int main ()
 
 }
 
+void registrarProducto(){
+    string opcion;
+    int codigodeProducto;
+    string nombredeProducto;
+    int  stockdeProducto;
+    float preciodeProducto;
+    int codigodeCategoria;
+do{
+    codigodeProducto=productoControlador->obtenerCorrelativo();
+    cout<<"***("<<codigodeProducto<<")*****\n";
+    cin.ignore();
+    cout<<"Nombre de Producto: ";
+    getline(cin, nombredeProducto);
+    cout<<""<<endl;
+    cout<<"Precio: ";
+    cin>>preciodeProducto;
+    cout<<"Stock: ";
+    cin>>stockdeProducto;
 
+    cout<<"Codigo de Categoria: ";
+    //listarItemCategorias();
+    cin>>codigodeCategoria;
+
+    cout<<"Continuar(S/s):";
+    cin>>opcion;
+
+    Producto objetoProducto(codigodeProducto, nombredeProducto,  preciodeProducto, stockdeProducto, codigodeCategoria);
+    productoControlador->registrarProducto(objetoProducto);
+
+    //productoController->guardarEnArchivo(objetoProducto);
+    system("cls");
+    //listarItemProductos();
+
+}while(opcion=="S" ||opcion=="s");
+}
 
