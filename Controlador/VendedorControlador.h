@@ -1,6 +1,8 @@
 #include<vector>
 #include <iostream>
 using namespace std;
+#include "../Modelo/Vendedor.h"
+#include <fstream>
 
 
 class VendedorControlador {
@@ -23,9 +25,9 @@ public:
         cout << "Se esta guardando el vendedor." << endl;
         try {
             fstream archivosVendedor;
-            archivosdelVendedor.open(si"ListaVendedor.csv", mode ios::app);
-            if (archivosVendedor.is.open()) {
-                archivosVendedor << objetoVendedor.getCodigoVendedor() << objetoVendedor.getCorreoVendedor() << objetoVendedor.getDireccionVendedor() << objetoVendedor.getDniVendedor() << objetoVendedor.getNombredeVendedor() << objetoVendedor.getTelefonoVendedor() << ";" << endl;
+            archivosVendedor.open("ListaVendedor.csv",ios::app);
+            if (archivosVendedor.is_open()) {
+                archivosVendedor << objetoVendedor.getdniVendedor()  << objetoVendedor.getnombresVendedor() << objetoVendedor.getNumCelularVendedor() << objetoVendedor.getApellidosVendedor() << ";" << endl;
             }
         }
         catch (exception e) {

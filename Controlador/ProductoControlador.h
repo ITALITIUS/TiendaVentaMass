@@ -45,6 +45,33 @@ public:
         }
     }
 
+    void cargarDatosDelArchivoAlVector() {
+        cout <<"Cargando Productos del archvio..."<<endl;
+        try {
+            int i;
+            size_t posicion;
+            string linea;
+            string arregloTemporal[4];
+            fstream archivoProducto;
+            archivoProducto.open("Productos.csv", ios::in);
+            if (archivoProducto.is_open()){
+                while (!archivoProducto.eof() && getline(archivoProducto, linea)){
+                    i = 0;
+                    while ((posicion = linea.find(";")) != string::npos){
+                        arregloTemporal[i] = linea.substr(0, posicion);
+                        linea.erase(0, posicion + 1);
+                        ++i;
+                    }
+
+                    Producto objProd(stoi(arregloTemporal[0]), arregloTemporal[1], stoi(arregloTemporal[2]), stoi(arregloTemporal[3]), stoi(arregloTemporal[4]));
+                    registrarProducto(objProd);
+                }
+            }
+        } catch (exception e) {
+            cout <<"Ocurrio un error al cargar Productos del archivo"<<endl;
+        }
+    }
+
     void Mostrarnombre(){
         cout <<"nombre" << nombre<<endl;
     }
