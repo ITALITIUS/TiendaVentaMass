@@ -12,7 +12,7 @@
 #include "Modelo/Categoria.h"
 #include "Modelo/Vendedor.h"
 #include "Modelo/DetalledeVenta.h"
-#include "Modelo/Venta.h"
+#include "Modelo/Ventas.h"
 #include "Controlador/VendedorControlador.h"
 #include "Controlador/DetalledeVentaControlador.h"
 #include "Controlador/VentaControlador.h"
@@ -72,25 +72,40 @@ void menuPrincipal(){
     do
     {
         cout<<"MENU DE OPCIONES\n";
-        cout<<" Registrar Productos 	[1]\n";
-        cout<<"Registrar Venta	[2]\n";
+        cout<<" Registrar Productos [1]\n";
+        cout<<"Registrar Ventas	    [2]\n";
         cout<<"Registrar Categoria	[3]\n";
         cout<<"Registrar cliente	[4]\n";
         cout<<"Registrar Vendedor	[5]\n";
-        cout<<"Salir					[6]\n";
-        cout<<"Ingrese una opcion[1-6]:";
+        cout<<" Listar Producto	    [6]\n";
+        cout<<"Listar Ventas	    [7]\n";
+        cout<<"Listar Categoria	    [8]\n";
+        cout<<"Listar Cliente	    [9]\n";
+        cout<<"Listar Vendedor	    [10]\n";
+
+
+
+
+
+        cout<<"Salir					[11]\n";
+        cout<<"Ingrese una opcion[1-11]:";
         cin>>opt;
         switch(opt)
         {
-            case 1:	system("cls");registrarProducto();break;
+            case 1:system("cls");registrarProducto();break;
             case 2:system("cls");registrarVenta();break;
             case 3:system("cls");registrarCategoria();break;
             case 4:system("cls");registrarCliente();break;
             case 5:	system("cls");agregarVendedor();break;
-            case 6:	cout<<"###########Gracias por tu compra##########\n";
+            case 6:system("cls");listarProducto();break;
+            case 7:system("cls");listarVenta();break;
+            case 8:system("cls");listarCategoria();break;
+            case 9:system("cls");listarCliente();break;
+            case 10:	system("cls");listarVendedor();break;
+            case 11:	cout<<"###########Gracias por tu compra##########\n";
                 exit(0);
                 break;
-            default:cout<<"Ingrese una opcion correcta[1-6]"<<endl;
+            default:cout<<"Ingrese una opcion correcta[1-10]"<<endl;
         }
     }
     while(opt!=6);
@@ -241,12 +256,12 @@ void registrarVenta(){
         codigodeVenta=ventaControlador->obtenerCorrelativo();
         cout<<"("<<codigodeVenta<<")**\n";
         cin.ignore();
-        cout<<"Total de la Venta: ";
+        cout<<"Total de la Ventas: ";
         cin>> totaldeVenta;
         cout<<""<<endl;
-        cout<<"Fecha de la Venta: ";
+        cout<<"Fecha de la Ventas: ";
         cin>>fechadeVenta;
-        cout<<"Estado de la Venta: ";
+        cout<<"Estado de la Ventas: ";
         cin>>estadodeVenta;
 
 
@@ -254,7 +269,7 @@ void registrarVenta(){
         cout<<"Continuar(S/s):";
         cin>>opcion;
 
-        Venta objetoVenta(codigodeVenta, totaldeVenta,  fechadeVenta, estadodeVenta );
+        Ventas objetoVenta(codigodeVenta, totaldeVenta, fechadeVenta, estadodeVenta );
         ventaControlador->registrarVenta(objetoVenta);
 
         //ventaController->guardarEnArchivo(objetoVenta);

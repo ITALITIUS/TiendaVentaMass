@@ -1,7 +1,8 @@
+#pragma once
 using namespace std;
 #include <iostream>
 
-class Venta {
+class Ventas {
 private:
     int codigodeVenta;
     int totaldeVenta;
@@ -9,8 +10,8 @@ private:
     string estadodeVenta;
 
 public:
-    Venta(){}
-    Venta(int codigodeVenta, int totaldeVenta,  string fechadeVenta , string estadodeVenta){
+    Ventas(){}
+    Ventas(int codigodeVenta, int totaldeVenta, string fechadeVenta , string estadodeVenta){
         this->codigodeVenta = codigodeVenta;
         this->fechadeVenta = fechadeVenta;
         this->totaldeVenta = totaldeVenta;

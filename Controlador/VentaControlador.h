@@ -1,20 +1,20 @@
 using namespace std;
 #include <vector>
 #include <iostream>
-#include "../Modelo/Venta.h"
+#include "../Modelo/Ventas.h"
 #include <fstream>
 
 class VentaControlador{
 private:
-    vector<Venta> vectorVenta;
+    vector<Ventas> vectorVenta;
     string nombre="VentaControlador";
 public:
     VentaControlador(){}
-    void registrarVenta(Venta objetoVenta){
+    void registrarVenta(Ventas objetoVenta){
         vectorVenta.push_back(objetoVenta);
     }
 
-    Venta obtenerPosicion( int posicion ){
+    Ventas obtenerPosicion(int posicion ){
         return vectorVenta[posicion];
     }
 
@@ -30,14 +30,14 @@ public:
         }
     }
 
-    void guardarVentaenArchivo(Venta objetoVenta){
+    void guardarVentaenArchivo(Ventas objetoVenta){
         cout <<"seestaguardandolaVenta" <<endl;
 
         try{
             fstream archivodelaVenta;
             archivodelaVenta.open("listadelaVenta.csv", ios::app);
             if(archivodelaVenta.is_open()){
-                for (Venta venta : vectorVenta)
+                for (Ventas venta : vectorVenta)
                 {
                     archivodelaVenta << venta.getcodigodeVenta() << ";" << venta.getfechadeVenta() << ";" << venta.gettotaldeVenta() << ";" << venta.getestadodeVenta() <<endl;
                 }
@@ -56,7 +56,7 @@ public:
             string linea;
             string temporal[4];
             fstream archivoVenta;
-            archivoVenta.open("Venta.txt", ios::in);
+            archivoVenta.open("Ventas.txt", ios::in);
             if (archivoVenta.is_open())
             {
                 while (!archivoVenta.eof())
@@ -70,8 +70,8 @@ public:
                             linea.erase(0, posicion + 1);
                             i++;
                         }
-                        //Crear un objeto tipo Venta
-                        Venta venta;
+                        //Crear un objeto tipo Ventas
+                        Ventas venta;
                         venta.setcodigodeVenta(std::stoi(temporal[0]));
                         venta.setestadodeVenta(temporal[1]);
                         venta.setfechadeVenta(temporal[2]);
