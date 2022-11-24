@@ -4,16 +4,30 @@ using namespace std;
 
 class Vendedor {
 private:
+    int  codigoVendedor;
     int dniVendedor;
     int numCelularVendedor;
-    string  nombresVendedor;
     string  apellidosVendedor;
+    string  nombresVendedor;
+
+
 public:
-    Vendedor(int DNI, int numCelularVendedor, string  apellidosVendedor, string nombresVendedor) {
-        this->dniVendedor = DNI;
+
+    Vendedor();
+    Vendedor(int codigoVendedor, int dniVendedor, int numCelularVendedor, string  apellidosVendedor, string nombresVendedor) {
+        this->codigoVendedor = codigoVendedor;
+        this->dniVendedor = dniVendedor;
         this-> numCelularVendedor = numCelularVendedor;
         this->apellidosVendedor = apellidosVendedor;
         this->nombresVendedor = nombresVendedor;
+    }
+
+    int getCodigoVendedor() {
+        return codigoVendedor;
+    }
+
+    void setCodigoVendedor(int codigoVendedor) {
+        Vendedor::codigoVendedor = codigoVendedor;
     }
     void setdniVendedor(int DNI) {
         this->dniVendedor = DNI;

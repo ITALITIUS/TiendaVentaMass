@@ -15,8 +15,9 @@ public:
 
 
     }
-
-    ~Categoria() {
+    Categoria(int codigoCategoria, string nombreCategoria){
+        this->codigoCategoria = codigoCategoria;
+        this->nombreCategoria = nombreCategoria;
 
     }
 

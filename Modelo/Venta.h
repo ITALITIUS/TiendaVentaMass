@@ -1,20 +1,18 @@
 using namespace std;
 #include <iostream>
 
-class Venta{
+class Venta {
 private:
     int codigodeVenta;
-    int numerodeVenta;
     int totaldeVenta;
     string fechadeVenta;
     string estadodeVenta;
 
 public:
     Venta(){}
-    Venta(int codigodeVenta, string fechadeVenta, int numerodeVenta, int totaldeVenta, string estadodeVenta){
+    Venta(int codigodeVenta, int totaldeVenta,  string fechadeVenta , string estadodeVenta){
         this->codigodeVenta = codigodeVenta;
         this->fechadeVenta = fechadeVenta;
-        this->numerodeVenta = numerodeVenta;
         this->totaldeVenta = totaldeVenta;
         this->estadodeVenta = estadodeVenta;
     }
@@ -24,13 +22,6 @@ public:
     }
     int getcodigodeVenta(){
         return codigodeVenta;
-    }
-
-    void setnumerodeVenta(int numerodeVenta){
-        this->numerodeVenta = numerodeVenta;
-    }
-    int getnumerodeVenta(){
-        return numerodeVenta;
     }
 
     void settotaldeVenta(int totaldeVenta){

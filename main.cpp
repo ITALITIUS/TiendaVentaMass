@@ -5,7 +5,6 @@
 #include <cstdlib>
 #include <conio.h>
 #include <vector>
-#include "LoginInicial.h"
 
 #include "Modelo/Producto.h"
 #include "Controlador/ProductoControlador.h"
@@ -14,6 +13,12 @@
 #include "Modelo/Vendedor.h"
 #include "Modelo/DetalledeVenta.h"
 #include "Modelo/Venta.h"
+#include "Controlador/VendedorControlador.h"
+#include "Controlador/DetalledeVentaControlador.h"
+#include "Controlador/VentaControlador.h"
+#include "Controlador/ClienteControlador.h"
+#include "Controlador/CategoriaControlador.h"
+
 using namespace std;
 
 //variables de login
@@ -27,7 +32,7 @@ void loginInicial();
 void menuPrincipal();
 
 void registrarProducto();
-void agregarCategoria();
+void registrarCategoria();
 void agregarVendedor();
 void registrarCliente();
 void registrarVenta();
@@ -43,98 +48,23 @@ void listarDetalledeVenta();
 
 
 ProductoControlador* productoControlador= new ProductoControlador();
+ClienteControlador* clienteControlador= new ClienteControlador();
+CategoriaControlador* categoriaControlador= new CategoriaControlador();
+DetalledeVentaControlador* detalledeVentaControlador= new DetalledeVentaControlador();
+VendedorControlador* vendedorControlador= new VendedorControlador();
+VentaControlador* ventaControlador= new VentaControlador();
+
 
 int main ()
 {
     cout << "bienvenido a tiendaventamas"<<endl;
-
-   registrarProducto();
-
-
-
-
-
-
+   menuPrincipal();
 
 
 
 }
 
-void loginInicial(){
-    vector<string> usuarios;
-    vector<string> claves;
 
-    usuarios.push_back("grupo2poo");
-
-
-    claves.push_back("sacamos20");
-
-
-    string usuario, password, nuevo;
-    int contador = 0;
-    bool ingresa = false;
-
-    do {
-        system("cls");
-        cout << "\n\n\n\t\t\t*** Ingreso al sistema***\n\n";
-        cout << "\n\tUsuario: ";
-        getline(cin, usuario);
-
-        char caracter;
-
-        cout << "\tPassword: ";
-        caracter = _getch();
-        password = "";
-
-        while (caracter != ENTER) {
-
-            if (caracter != BACKSPACE) {
-                password.push_back(caracter);
-                cout << "*";
-            }
-            else {
-                if (password.length() > 0) {
-                    cout << "\b \b";
-                    password = password.substr(0, password.length() - 1);
-                }
-            }
-            caracter = _getch();
-        }
-        cout << "\n";
-        nuevo = Sustitucion::Cifrar(password);
-        cout << "\n\tContrasena Encriptada: " << nuevo;
-
-        for (int i = 0; i < usuarios.size(); i++) {
-            if (usuarios[i] == usuario && claves[i] == password) {
-                ingresa = true;
-                break;
-            }
-        }
-
-        if (!ingresa) {
-            cout << "\n\n\n\t\t *****ERROR***\n";
-            cout << "\t\t El usuario o contrasenia son incorrectas. \n ";
-            cout << "\t\t ********\n";
-            cin.get();
-            system("pause");
-            contador++;
-        }
-
-    } while (ingresa == false && contador < INTENTOS);
-
-    if (ingresa == false) {
-        cout << "\n\tUsted no pudo ingresar al sistema. ADIOS" << endl;
-    }
-    else {
-        cout << "\n\n\n\t\t *****Ingreso con exito *****\n";
-        cout << "\t\t bienvenido al sistema usted ingreso correctamente. \n";
-        cout << "\t\t ********\n";
-    }
-
-    cin.get();
-
-    //return 0;
-}
 
 void menuPrincipal(){
     //Declarar Variables
@@ -142,25 +72,21 @@ void menuPrincipal(){
     do
     {
         cout<<"MENU DE OPCIONES\n";
-        cout<<"Ingresar Nuevos Alumnos	[1]\n";
-        cout<<"Eliminar Nuevos Alumnos	[2]\n";
-        cout<<"Modificar Nuevos Alumnos	[3]\n";
-        cout<<"Buscar Nuevos Alumnos	[4]\n";
-        cout<<"Listar Alumnos			[5]\n";
+        cout<<" Registrar Productos 	[1]\n";
+        cout<<"Registrar Venta	[2]\n";
+        cout<<"Registrar Categoria	[3]\n";
+        cout<<"Registrar cliente	[4]\n";
+        cout<<"Registrar Vendedor	[5]\n";
         cout<<"Salir					[6]\n";
         cout<<"Ingrese una opcion[1-6]:";
         cin>>opt;
         switch(opt)
         {
-            case 1:	system("cls");
-                adicionarAlumnos();
-                break;
-            case 2:system("cls");eliminarAlumnos();break;
-            case 3:system("cls");modificarAlumnos();break;
-            case 4:system("cls");buscarAlumno();break;
-            case 5:	system("cls");
-                listarAlumnos();
-                break;
+            case 1:	system("cls");registrarProducto();break;
+            case 2:system("cls");registrarVenta();break;
+            case 3:system("cls");registrarCategoria();break;
+            case 4:system("cls");registrarCliente();break;
+            case 5:	system("cls");agregarVendedor();break;
             case 6:	cout<<"###########Gracias por tu compra##########\n";
                 exit(0);
                 break;
@@ -207,11 +133,171 @@ do{
 }while(opcion=="S" ||opcion=="s");
 }
 
-void agregarCategoria(){}
-void agregarVendedor(){}
-void registrarCliente(){}
-void registrarVenta(){}
-void registrarDetalledeVenta(){}
+void registrarCategoria(){
+    string opcion;
+    int codigoCategoria;
+    string nombreCategoria;
+    do{
+        codigoCategoria=categoriaControlador->obtenerCorrelativo();
+        cout<<"*("<<codigoCategoria<<")***\n";
+        cin.ignore();
+        cout<<"Nombre de Categoria: ";
+        getline(cin, nombreCategoria);
+        cout<<""<<endl;
+        cout<<"Codigo de Categoria: ";
+        //listarItemCategorias();
+        cin>>codigoCategoria;
+
+        cout<<"Continuar(S/s):";
+        cin>>opcion;
+
+        Categoria objetoCategoria(codigoCategoria, nombreCategoria);
+        categoriaControlador->registrarCategoria(objetoCategoria);
+
+        categoriaControlador->generarProductoCategoria(objetoCategoria);
+        system("cls");
+        //listarItemProductos();
+
+    }while(opcion=="S" ||opcion=="s");
+}
+void agregarVendedor(){
+    string opcion;
+    int codigoVendedor;
+    int dniVendedor;
+    int  numCelularVendedor;
+    string nombresVendedor;
+    string apellidosVendedor;
+    do{
+        codigoVendedor=vendedorControlador->obtenerCorrelativo();
+        cout<<"("<<codigoVendedor<<")**\n";
+
+        cout<<"(<<dniVendedor<<)**\n";
+        cin>>dniVendedor;
+        cout<<"Numero celular del Vendedor: ";
+        cin>> numCelularVendedor;
+        cout<<""<<endl;
+        cout<<"Nombres del Vendedor: ";
+        cin>>nombresVendedor;
+        cout<<"Apellidos del Vendedor: ";
+        cin>>apellidosVendedor;
+
+
+
+        cout<<"Continuar(S/s):";
+        cin>>opcion;
+
+        Vendedor objetoVendedor(codigoVendedor, dniVendedor, numCelularVendedor,  apellidosVendedor, nombresVendedor);
+        vendedorControlador->regitrarVendedor(objetoVendedor);
+
+
+        system("cls");
+
+
+    }while(opcion=="S" ||opcion=="s");
+}
+void registrarCliente(){
+    string opcion;
+    int codigoCliente;
+    string nombredeCliente;
+    string telefonoCliente;
+    string correoCliente;
+    string direccionCliente;
+    do{
+        codigoCliente= clienteControlador->obtenerCorrelativo();
+        cout<<"("<<codigoCliente<<")**\n";
+        cin.ignore();
+
+        cout<<"Nombre de cliente: ";
+        getline(cin, nombredeCliente);
+        cout<<""<<endl;
+        cout<<"Telefono del cliente:";
+        cin>>telefonoCliente;
+
+        cout<<"Correo del cliente: ";
+        cin>>correoCliente;
+
+        cout<<"Direccion de cliente: ";
+        cin>>direccionCliente;
+
+        cout<<"Continuar(S/s):";
+        cin>>opcion;
+
+        Cliente objetoCliente (codigoCliente,nombredeCliente,telefonoCliente,correoCliente, direccionCliente);
+        clienteControlador->registrarCliente(objetoCliente);
+
+        clienteControlador->guardarClienteenArchivo(objetoCliente);
+        system("cls");
+        //listarItemProductos();
+
+    }while(opcion=="S" ||opcion=="s");
+}
+void registrarVenta(){
+    string opcion;
+    int codigodeVenta;
+    int  totaldeVenta;
+    string fechadeVenta;
+    string estadodeVenta;
+    do{
+        codigodeVenta=ventaControlador->obtenerCorrelativo();
+        cout<<"("<<codigodeVenta<<")**\n";
+        cin.ignore();
+        cout<<"Total de la Venta: ";
+        cin>> totaldeVenta;
+        cout<<""<<endl;
+        cout<<"Fecha de la Venta: ";
+        cin>>fechadeVenta;
+        cout<<"Estado de la Venta: ";
+        cin>>estadodeVenta;
+
+
+
+        cout<<"Continuar(S/s):";
+        cin>>opcion;
+
+        Venta objetoVenta(codigodeVenta, totaldeVenta,  fechadeVenta, estadodeVenta );
+        ventaControlador->registrarVenta(objetoVenta);
+
+        //ventaController->guardarEnArchivo(objetoVenta);
+        system("cls");
+
+
+    }while(opcion=="S" ||opcion=="s");
+}
+void registrarDetalledeVenta(){
+    string opcion;
+    int codigoVenta;
+    string codigoProducto;
+    string  cantidadProducto;
+    string precioDeVenta;
+
+    do {
+        codigoVenta =detalledeVentaControlador->obtenerCorrelativo();
+        cout << "*(" << codigoVenta << ")***\n";
+        cin.ignore();
+        cout << "Codigo de producto: ";
+        getline(cin, codigoProducto);
+        cout << "" << endl;
+
+        cout << "Cantidad a comprar:";
+        cin >> cantidadProducto;
+
+        cout << "Precio de venta: ";
+        cin >> precioDeVenta;
+
+        cout << "Continuar(S/s):";
+        cin >> opcion;
+
+        DetalleDeVenta objetoDetalledeVenta(codigoVenta, codigoProducto, cantidadProducto, precioDeVenta);
+        detalledeVentaControlador->registrarDetalledeVenta(objetoDetalledeVenta);
+
+        //DetalledeVentaController->guardarEnArchivo(objetoDetalle);
+        system("cls");
+        //listarItemDetalledeVenta();
+
+
+    }
+    while(opcion=="S" ||opcion=="s");
+};
 
 
 
@@ -222,8 +308,34 @@ void listarProducto(){
 
     }
 }
-void listarCategoria(){}
-void listarVendedor(){}
-void listarCliente(){}
-void listarVenta(){}
-void listarDetalledeVenta(){}
+void listarCategoria() {
+    cout << "Lista de categoria." << endl;
+    for (int i = 0; i <categoriaControlador->longitud(); i++) {
+        cout << categoriaControlador->obtenerPosicion(i).getCodigoCategoria() << "\t" << categoriaControlador->obtenerPosicion(i).getNombreCategoria() << "\t" << endl;
+    }
+}
+void listarVendedor() {
+    cout << "Lista vendedor." << endl;
+    for (int i = 0; i < vendedorControlador->longitud(); i++) {
+        cout << vendedorControlador->obtenerPosicion(i).getdniVendedor() << "\t" << vendedorControlador->obtenerPosicion(i).getNumCelularVendedor() << "\t" << vendedorControlador->obtenerPosicion(i).getnombresVendedor() << "\t" << vendedorControlador->obtenerPosicion(i).getApellidosVendedor() << "\t" << endl;
+    }
+}
+void listarCliente() {
+    cout << "Lista de clientes." << endl;
+    for (int i = 0; i < clienteControlador->longitud(); i++) {
+        cout << clienteControlador->obtenerPosicion(i).getCodigoCliente() << "\t" << clienteControlador->obtenerPosicion(i).getNombredeCliente() << "\t" << clienteControlador->obtenerPosicion(i).getTelefonoCliente() << "\t" << clienteControlador->obtenerPosicion(i).getCorreoCliente() << "\t" << clienteControlador->obtenerPosicion(i).getDireccionCliente() << "\t" << endl;
+    }
+}
+void listarVenta() {
+    cout << "Lista de venta." << endl;
+    for (int i = 0; i < ventaControlador->longitud(); i++) {
+        cout << ventaControlador->obtenerPosicion(i).getcodigodeVenta() << "\t" << ventaControlador->obtenerPosicion(i).gettotaldeVenta() << "\t" << ventaControlador->obtenerPosicion(i).getfechadeVenta() << "\t" << ventaControlador->obtenerPosicion(i).getestadodeVenta() << "\t" << endl;
+    }
+}
+void listarDetalledeVenta(){
+    cout<<"lista de detalles: "<<endl;
+    for(int i=0; i<detalledeVentaControlador->longitud(); i++){
+        cout<< detalledeVentaControlador->obtenerPosicion(i).getCodigoVenta()<<"\t"<<detalledeVentaControlador->obtenerPosicion(i).getcodigoProducto()<<"\t"<<detalledeVentaControlador->obtenerPosicion(i).getcantidadProducto()<<"\t"<<detalledeVentaControlador->obtenerPosicion(i).getprecioDeVenta()<<"\t"<<endl;
+
+    }
+}

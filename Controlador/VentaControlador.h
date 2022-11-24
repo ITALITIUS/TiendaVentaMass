@@ -39,7 +39,7 @@ public:
             if(archivodelaVenta.is_open()){
                 for (Venta venta : vectorVenta)
                 {
-                    archivodelaVenta << venta.getcodigodeVenta() << ";" << venta.getfechadeVenta() << ";" << venta.gettotaldeVenta() << ";" << venta.getestadodeVenta() << ";" << venta.getnumerodeVenta() << ";"  << endl;
+                    archivodelaVenta << venta.getcodigodeVenta() << ";" << venta.getfechadeVenta() << ";" << venta.gettotaldeVenta() << ";" << venta.getestadodeVenta() <<endl;
                 }
                 archivodelaVenta.close();
             }

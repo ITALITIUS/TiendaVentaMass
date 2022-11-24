@@ -6,10 +6,9 @@ using namespace std;
 
 class Cliente {
 private:
-    int codigoCliente = 2;
+    int codigoCliente;
     string nombredeCliente;
     string telefonoCliente;
-    string dniCliente;
     string correoCliente;
     string direccionCliente;
 
@@ -47,14 +46,6 @@ public:
 
     void setTelefonoCliente(string telefonoCliente) {
         telefonoCliente = telefonoCliente;
-    }
-
-    string getDniCliente() {
-        return dniCliente;
-    }
-
-    void setDniCliente(string dniCliente) {
-        dniCliente = dniCliente;
     }
 
     string getCorreoCliente() {

@@ -2,7 +2,7 @@
 #pragma once
 using namespace std;
 
-class detalleDeVenta {
+class DetalleDeVenta {
 private:
     int codigoVenta;
     string codigoProducto;
@@ -10,7 +10,7 @@ private:
     string precioDeVenta;
 
 public:
-    detalleDeVenta(int codigoVenta, string codigoProducto, string cantidadProducto, string precioDeVenta){
+    DetalleDeVenta(int codigoVenta, string codigoProducto, string cantidadProducto, string precioDeVenta){
         this->codigoVenta = codigoVenta;
         this->codigoProducto = codigoProducto;
         this->cantidadProducto = cantidadProducto;

@@ -46,7 +46,7 @@ public:
     }
 
     void cargarDatosDelArchivoAlVector() {
-        cout <<"Cargando Productos del archvio..."<<endl;
+        cout <<"Cargando Productos del archivo..."<<endl;
         try {
             int i;
             size_t posicion;

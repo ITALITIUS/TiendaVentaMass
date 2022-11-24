@@ -14,7 +14,7 @@ public:
         vectorCategoria.push_back(objetoCategoria);
     }
 
-    Categoria objetoCategoria(int posicion) {
+    Categoria obtenerPosicion(int posicion) {
         return vectorCategoria[posicion];
     }
 

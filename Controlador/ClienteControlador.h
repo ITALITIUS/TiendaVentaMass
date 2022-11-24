@@ -13,7 +13,7 @@ public:
         vectorCliente.push_back(objetoCliente);
     }
 
-    Cliente objetoCliente(int posicion) {
+    Cliente obtenerPosicion(int posicion) {
         return vectorCliente[posicion];
     }
 
@@ -29,13 +29,13 @@ public:
             return vectorCliente[longitud() - 1].getCodigoCliente() + 1;
         }
     }
-    void generarProductoCliente(Cliente objetoCliente) {
+    void guardarClienteenArchivo(Cliente objetoCliente) {
         cout << "Se esta guardando el cliente." << endl;
         try {
             fstream archivosCliente;
             archivosCliente.open("ListaClientes.csv",ios::app);
             if(archivosCliente.is_open()){
-                archivosCliente << objetoCliente.getCodigoCliente() << objetoCliente.getCorreoCliente() << objetoCliente.getDireccionCliente() << objetoCliente.getDniCliente() << objetoCliente.getNombredeCliente() << objetoCliente.getTelefonoCliente() << ";" << endl;
+                archivosCliente << objetoCliente.getCodigoCliente() << objetoCliente.getCorreoCliente() << objetoCliente.getDireccionCliente()  << objetoCliente.getNombredeCliente() << objetoCliente.getTelefonoCliente() << ";" << endl;
             }
         }
         catch (exception e) {
