@@ -61,8 +61,8 @@ int main ()
     cout << "bienvenido a tiendaventamas"<<endl;
     loginInicial();
    //menuPrincipal();
-   registrarProducto();
-   registrarVenta();
+   //registrarProducto();
+   //registrarVenta();
 
 
 
