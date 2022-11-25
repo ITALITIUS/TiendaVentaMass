@@ -1,4 +1,7 @@
 using namespace std;
+#pragma once
+#include <string>
+#include <iomanip>
 #include <vector>
 #include <iostream>
 #include "../Modelo/Producto.h"
@@ -7,7 +10,7 @@ using namespace std;
 class ProductoControlador{
 private:
     vector<Producto> vectorProducto;
-    string nombre="ProductoControlador";
+    //string nombre="ProductoControlador";
 public:
     ProductoControlador(){}
     void registrarProducto(Producto objetoProducto ){
@@ -31,7 +34,7 @@ public:
     }
 
     void guardarProductoenArchivo(Producto objetoProducto){
-        cout <<"seestaguardandoelProducto" <<endl;
+        cout <<"Se esta guardando el Producto \n" ;
 
         try{
             fstream archivodelProducto;
@@ -55,6 +58,7 @@ public:
             fstream archivoProducto;
             archivoProducto.open("Productos.csv", ios::in);
             if (archivoProducto.is_open()){
+
                 while (!archivoProducto.eof() && getline(archivoProducto, linea)){
                     i = 0;
                     while ((posicion = linea.find(";")) != string::npos){
@@ -72,7 +76,4 @@ public:
         }
     }
 
-    void Mostrarnombre(){
-        cout <<"nombre" << nombre<<endl;
-    }
 };

@@ -7,12 +7,12 @@ private:
     int codigodeProducto;
     string nombredeProducto;
     int  stockdeProducto;
-    float preciodeProducto;
+    long preciodeProducto;
     int codigodeCategoria;
 
 public:
     //Producto(){}
-    Producto(int codigodeProducto, string nombredeProducto, int stockdeProducto, float preciodeProducto, int CodigodeCategoria){
+    Producto(int codigodeProducto, string nombredeProducto, int stockdeProducto, long preciodeProducto, int codigodeCategoria){
         this->codigodeProducto = codigodeProducto;
         this->nombredeProducto = nombredeProducto;
         this->stockdeProducto = stockdeProducto;
@@ -45,11 +45,11 @@ public:
         stockdeProducto = stockdeProducto;
     }
 
-    float getPreciodeProducto(){
+    long getPreciodeProducto(){
         return preciodeProducto;
     }
 
-    void setPreciodeProducto(float preciodeProducto){
+    void setPreciodeProducto(long preciodeProducto){
         preciodeProducto = preciodeProducto;
     }
 
