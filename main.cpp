@@ -1,7 +1,7 @@
 #include "iostream"
 #include <string>
 
-//Login Inicial
+//llamado de cada uno de los archivos
 #include <cstdlib>
 #include <conio.h>
 #include <vector>
@@ -28,7 +28,7 @@ using namespace std;
 #define INTENTOS 3
 
 
-
+//variables a usar
 void loginInicial();
 void menuPrincipal();
 
@@ -76,7 +76,7 @@ void loginInicial(){
     usuarios.push_back("grupo2poo");
 
 
-    claves.push_back("sacamos20");
+    claves.push_back("grupo2poo");
 
 
     string usuario, password, nuevo;
